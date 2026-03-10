@@ -4,3 +4,167 @@
 *:after {
   box-sizing: border-box;
 }
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  background-color: #f5f7fa;
+  color: #222;
+}
+
+main {
+  padding: 1rem;
+}
+
+.delorean-hero {
+  position: relative;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.delorean-hero img{
+  width: 100%;
+  max-width: 500px;
+}
+
+.hero-info {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.hero-info h2{
+  color: #07a;
+  margin: 0;
+  font-size: .9rem;
+}
+
+.hero-info ul{
+  padding-left: 1rem;
+}
+
+.cta-btn{
+  display: inline-block;
+  margin-top: .5rem;
+  padding: .5rem 1rem;
+  background-color: #07a;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.reviews ul{
+  padding-left: 1rem;
+}
+
+.reviews li{
+  margin-bottom: 1rem;
+}
+
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.upgrade-item {
+  text-align: center;
+  background: #e8f4f8;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.upgrade-item img {
+  width: 70px;
+  display: block;
+  margin: 0 auto;
+}
+
+footer{
+  text-align: center;
+  padding: 1rem;
+  background-color: #111;
+  color: white;
+}
+
+nav {
+  background: #222;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.nav-list li {
+  padding: 1rem;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.nav-list a:hover {
+  color: #13a8e8;
+  cursor: pointer;
+}
+
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.siteName a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #222
+}
+
+#tools a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+}
+
+#tools a:hover {
+  text-decoration: underline;
+}
+
+
+@media screen and (min-width: 768px){
+  .home-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .delorean-hero {
+    display: flex;
+    align-items: center;
+  }
+
+  .delorean-hero img {
+    max-width: 600px;
+  }
+
+  .hero-info{
+    position: absolute;
+    left: 10%;
+  }
+
+  .hero-info h2{
+    font-size: 1rem;
+  }
+}
