@@ -226,6 +226,146 @@ nav {
   color: #07a;
 }
 
+.login-container {
+  max-width: 420px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.login-form input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.login-form button {
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius:  6px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.login-form button:hover {
+  background-color: #444;
+}
+
+.login-container p {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.login-container a {
+  color: #07a;
+  text-decoration: none;
+}
+
+.login-container a:hover {
+  text-decoration: underline;
+}
+
+.register-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form label {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.register-form input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.register-form input:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.register-form button {
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius:  6px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.register-form button:hover {
+  background-color: #444;
+}
+
+.register-container p {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.register-container a {
+  color: #07a;
+  text-decoration: none;
+}
+
+.register-container a:hover {
+  text-decoration: underline;
+}
+
+.show-password {
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: .5rem;
+}
+
+.password-hint {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.password-hint ul {
+  margin: .3rem 0 0 1rem;
+}
+
 @media (min-width: 768px){
   .home-grid{
     display: grid;
