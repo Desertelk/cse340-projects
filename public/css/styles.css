@@ -240,6 +240,11 @@ nav {
   flex-direction: column;
 }
 
+.login-container span {
+  font-size: .8rem;
+  margin: 1rem;
+}
+
 .login-form label {
   margin-top: 1rem;
   font-weight: 600;
@@ -365,6 +370,8 @@ nav {
 .password-hint ul {
   margin: .3rem 0 0 1rem;
 }
+
+
 
 @media (min-width: 768px){
   .home-grid{
