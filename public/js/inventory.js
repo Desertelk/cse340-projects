@@ -23,16 +23,18 @@ classificationList.addEventListener("change", function() {
 
 function buildInventoryList(data){
     let inventoryDisplay = document.getElementById("inventoryDisplay");
-    let dataTable = '<thead>';
+
+    let dataTable = '<table class="inventory-table">'; 
+    dataTable += '<thead>';
     dataTable += '<tr><th>Vehicle Name</th><td>&nbsp;</td><td>&nbsp;</td></tr>';
     dataTable += '</thead>';
-    dataTable += '<tbody';
+    dataTable += '<tbody>';
     data.forEach(function (element) {
         console.log(element.inv_id + ", " + element.inv_model);
         dataTable += `<tr><td>${element.inv_make} ${element.inv_model}</td>`;
         dataTable += `<td><a href='/inv/edit/${element.inv_id}' title='Click to update'>Modify</a></td>`;
         dataTable += `<td><a href='/inv/delete/${element.inv_id}' title='Clicke to delete'>Delete</a></td>`;
     })
-    dataTable += '</tbody>';
+    dataTable += '</tbody></table>';
     inventoryDisplay.innerHTML = dataTable;
 }

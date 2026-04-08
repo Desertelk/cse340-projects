@@ -6,7 +6,7 @@
 } %>
 
 <%- messages() %>
-<form action="/inv/update" method="post">
+<form action="/inv/update" method="post" id="updateForm">
     <label for="classification_id">Classification</label>
     <%- classificationSelect %>
 
@@ -20,10 +20,10 @@
     <textarea name="inv_description" id="inv_description" required><%= typeof inv_description != 'undefined' ? inv_description : '' %></textarea>    
 
     <label for="inv_image">Image Path</label>
-    <input type="text" name="inv_image" id="inv_image" required value="/public/images/vehicles/no-image.png">
+    <input type="text" name="inv_image" id="inv_image" required value="<%= typeof inv_image != 'undefined' ? inv_image : '/public/images/vehicles/no-image.png' %>">
 
     <label for="inv_thumbnail">Thumbnail Path</label>
-    <input type="text" name="inv_thumbnail" id="inv_thumbnail" required value="/public/images/vehicles/no-image-tn.png">
+    <input type="text" name="inv_thumbnail" id="inv_thumbnail" required value="<%= typeof inv_thumbnail != 'undefined' ? inv_thumbnail : '/public/images/vehicles/no-image-tn.png' %>">
 
     <label for="inv_price">Price</label>
     <input type="number" name="inv_price" id="inv_price" required value="<%= typeof inv_price != 'undefined' ? inv_price : '' %>">
@@ -37,6 +37,10 @@
     <label for="inv_color">Color</label>
     <input type="text" name="inv_color" id="inv_color" required value="<%= typeof inv_color != 'undefined' ? inv_color : '' %>">
 
-    <button type="submit">Update Vehicle</button>
+    <button type="submit" disabled>Update Vehicle</button>
+
+    <input type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+    <% } %>>
 </form>
 </div>
+<script src="/js/inv-update.js"></script>
