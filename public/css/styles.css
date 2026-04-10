@@ -550,6 +550,27 @@ nav {
   background-color: #a71d2a;
 }
 
+.account-links {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  text-align: center;
+}
+
+.account-links a {
+  display: block;
+  padding: .7rem;
+  background-color: #555;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: .2s;
+  max-width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 600;
+}
+
 @media (min-width: 768px){
   .home-grid{
     display: grid;
