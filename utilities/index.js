@@ -143,6 +143,15 @@ Util.buildClassificationList = async function (classification_id = null) {
     return res.redirect("/account/login")
   }
 
+  Util.checkAdmin = async (req, res, next) => {
+    if (res.locals.accountData && res.locals.accountData.account_type === "Admin") {
+        return next()
+    }
+
+    req.flash("notice", "Access denied")
+    return res.redirect("/account/")
+}
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 

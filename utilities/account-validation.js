@@ -166,18 +166,26 @@ validate.updatePasswordRules = () => {
 
 validate.checkPasswordData = async (req, res, next) => {
     const { account_id } = req.body
+    
     const errors = validationResult(req)
 
     if(!errors.isEmpty()) {
         let nav = await utilities.getNav()
 
+        const accountData = await accountModel.getAccountById(account_id)
+
         return res.render("account/update", {
             title: "Update Account",
             nav,
             errors,
-            account_id
+            account_id: accountData.account_id,
+            account_firstname: accountData.account_firstname,
+            account_lastname: accountData.account_lastname,
+            account_email: accountData.account_email
         })
     }
     next()
 }
+
+
 module.exports = validate

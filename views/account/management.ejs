@@ -15,5 +15,12 @@
         <p>
             <a href="/inv/">Manage Inventory</a>
         </p>
-</div>
-<% } %>
+        <% } %>
+
+    <% if(accountData.account_type === "Admin") { %>
+        <h3>Admin Tools</h3>
+        <p>
+            <a href="/account/admin">Manage Users</a>
+        </p>
+    <% } %>
+    </div>

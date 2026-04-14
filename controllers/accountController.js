@@ -136,9 +136,9 @@ async function buildUpdateView(req, res) {
 async function updateAccount(req, res) {
     let nav = await utilities.getNav()
 
-    let { account_id, account_firstname, account_lastname, account_email } = req.body
+    const account_id = res.locals.accountData.account_id
 
-    account_id = Array.isArray(account_id) ? account_id[0] : account_id
+    const { account_firstname, account_lastname, account_email } = req.body
 
     const result = await accountModel.updateAccount(
         account_id,
@@ -165,9 +165,8 @@ async function updateAccount(req, res) {
 async function updatePassword(req, res) {
     let nav = await utilities.getNav()
 
-    let { account_id, account_password } = req.body
-
-    account_id = Array.isArray(account_id) ? account_id[0] : account_id
+    const account_id = res.locals.accountData.account_id
+    const { account_password } = req.body
 
     let hashedPassword
     try{
@@ -200,6 +199,34 @@ async function logout(req, res) {
     return res.redirect("/")
 }
 
+async function buildAdminView(req, res) {
+    let nav = await utilities.getNav()
+
+    const accounts = await accountModel.getAllAccounts()
+
+    res.render("account/admin", {
+        title: "Admin Dashboard",
+        nav,
+        accounts,
+        errors: null
+    })
+}
+
+async function getAccountsJSON(req, res) {
+    const accounts = await accountModel.getAllAccounts()
+    res.json(accounts)
+}
+
+async function updateAccountRole(req, res) {
+    const { account_id, account_type } = req.body
+
+    await accountModel.updateAccountRole(account_id, account_type)
+
+    req.flash("notice", "Role updated successfully.")
+
+    res.redirect("/account/admin")
+}
+
 module.exports = {
     buildLogin,
     buildRegister,
@@ -209,5 +236,8 @@ module.exports = {
     buildUpdateView,
     updateAccount,
     updatePassword,
-    logout
+    logout,
+    buildAdminView,
+    getAccountsJSON, 
+    updateAccountRole
 }

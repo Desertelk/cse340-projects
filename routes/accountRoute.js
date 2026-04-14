@@ -10,6 +10,8 @@ router.get("/register", utilities.handleErrors(accController.buildRegister))
 router.get("/", utilities.checkLogin, utilities.handleErrors(accController.buildAccountManagement))
 router.get("/update/:account_id", utilities.checkLogin, utilities.handleErrors(accController.buildUpdateView))
 router.get("/logout", utilities.handleErrors(accController.logout))
+router.get("/admin", utilities.checkLogin, utilities.checkAdmin, utilities.handleErrors(accController.buildAdminView))
+router.get("/getAccounts", utilities.checkLogin, utilities.checkAdmin, utilities.handleErrors(accController.getAccountsJSON))
 
 
 router.post(
@@ -36,6 +38,12 @@ router.post("/update-password",
     validate.updatePasswordRules(),
     validate.checkPasswordData,
     utilities.handleErrors(accController.updatePassword)
+)
+
+router.post("/update-role",
+    utilities.checkLogin,
+    utilities.checkAdmin,
+    utilities.handleErrors(accController.updateAccountRole)
 )
 
 module.exports = router

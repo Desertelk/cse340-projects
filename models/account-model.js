@@ -58,11 +58,27 @@ async function updatePassword(account_id, account_password){
     }
 }
 
+async function getAllAccounts() {
+    try{
+        const data = await pool.query("SELECT account_id, account_firstname, account_lastname, account_email, account_type FROM account ORDER BY account_id")
+        return data.rows
+    } catch (error) {
+        return error.message
+    }
+}
+
+async function updateAccountRole(account_id, account_type) {
+    const sql = `UPDATE account SET account_type = $1 WHERE account_id = $2`
+    return await pool.query(sql, [account_type, account_id])
+}
+
 module.exports = {
     registerAccount,
     checkExistingEmail,
     getAccountByEmail,
     getAccountById,
     updateAccount,
-    updatePassword
+    updatePassword,
+    getAllAccounts,
+    updateAccountRole
 }
